@@ -24,10 +24,9 @@ const displayTodos = (entireList) => {
     createTodoDOMElements(entireList, Object.keys(projectLists).length);
 }
 
-// Need a way to add the desired list so it doesnt just use default
-const addReminderToList = (title, description, priority) => {
+const addReminderToList = (list, title, description, priority) => {
     let reminder = todoFactory(title, description, priority);
-    projectLists.default.push(reminder);
+    projectLists[list].push(reminder);
     displayTodos();
 }
 
@@ -36,9 +35,9 @@ const addList = (name) => {
 }
 
 // Push data to list so it may be used by console/DOM
-// addReminderToList('SWE Interview w/ Dean', 'Recruiter from linkedin', 'high');
+addReminderToList('school', 'SWE Interview w/ Dean', 'Recruiter from linkedin', 'high');
 
 // Checking if addList function works
-addList({'wish list': []});
+//addList({'wish list': []});
 
 displayTodos(projectLists);

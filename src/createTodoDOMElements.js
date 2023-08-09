@@ -7,7 +7,7 @@ const createTodoDOMElements = (entireList, listCount) => {
         console.log(entireList[key]);
         // div for entire list
         let listBox = document.createElement('div');
-        listBox.setAttribute('id', `list`);
+        listBox.setAttribute('id', `list-${key}`);
         content.appendChild(listBox);
 
         for(let i = 0; i < entireList[key].length; i++) {

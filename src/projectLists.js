@@ -1,19 +1,19 @@
 let projectLists = {
     default: [
         {
-            title: 'For list 1',
+            title: 'Need groceries!',
             description: 'Go to Stop n Shop for milk',
             priority: 'low'
         },
         {
-            title: 'Also for list 1',
+            title: 'car bill',
             description: 'payment is past due..',
             priority: 'high'
         }
     ],
     school: [
         {
-            title: 'For list 2',
+            title: 'Harvard application!!',
             description: 'Need documents from QC to transfer',
             priority: 'medium'
         }
