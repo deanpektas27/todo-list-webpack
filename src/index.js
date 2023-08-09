@@ -2,6 +2,7 @@ import './style.css';
 import { format } from 'date-fns'
 import { createTodoDOMElements } from './createTodoDOMElements';
 import { projectLists } from './projectLists';
+import { addReminderForm } from './addReminderForm';
 
 const content = document.querySelector('#content');
 
@@ -17,6 +18,7 @@ const todoFactory = (title, description, priority) => {
 // This might not be necessary, try to find better implementation
 const render = () => {
     content.innerHTML = '';
+    addReminderForm();
 }
 
 const displayTodos = (entireList) => {
@@ -35,9 +37,10 @@ const addList = (name) => {
 }
 
 // Push data to list so it may be used by console/DOM
-addReminderToList('school', 'SWE Interview w/ Dean', 'Recruiter from linkedin', 'high');
+addReminderToList('school', 'SWE Interview w/ Abraham', 'Recruiter from linkedin', 'high');
 
 // Checking if addList function works
-//addList({'wish list': []});
+addList({'wish list': []});
+addReminderToList('wish list', 'playstation 5', 'need this!!', 'high');
 
 displayTodos(projectLists);

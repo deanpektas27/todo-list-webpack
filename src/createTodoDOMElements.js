@@ -8,6 +8,7 @@ const createTodoDOMElements = (entireList, listCount) => {
         // div for entire list
         let listBox = document.createElement('div');
         listBox.setAttribute('id', `list-${key}`);
+        listBox.setAttribute('style', `margin: 20px;border: 2px solid black;padding: 10px;`);
         content.appendChild(listBox);
 
         for(let i = 0; i < entireList[key].length; i++) {
@@ -15,6 +16,7 @@ const createTodoDOMElements = (entireList, listCount) => {
             console.log(entireList[key][i]);
             let reminderDiv = document.createElement('div');
             reminderDiv.setAttribute('id','reminder');
+            reminderDiv.setAttribute('style','margin: 20px;border: 2px dotted black;padding: 10px;');
 
             // Collect all properties of reminder and display them
             let h2 = document.createElement('h2');
