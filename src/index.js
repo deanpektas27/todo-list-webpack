@@ -28,7 +28,6 @@ const todoFactory = (title, description, priority) => {
 const addReminderToList = (list, title, description, priority) => {
     let reminder = todoFactory(title, description, priority);
     projectLists[list].push(reminder);
-    console.log(projectLists[list]);
     render();
 }
 

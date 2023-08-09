@@ -80,8 +80,6 @@ const addReminderForm = (projectLists) => {
         let description = document.querySelector('#inputDescription').value;
         let priority = document.querySelector('#priority').value;
         let chosenList = document.querySelector('#listdropdown').value;
-        console.log(chosenList, title, description, priority, chosenList);
-        console.log(projectLists);
         addReminderToList(chosenList, title, description, priority);
     })
 
