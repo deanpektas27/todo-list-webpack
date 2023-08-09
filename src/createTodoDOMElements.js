@@ -9,7 +9,14 @@ const createTodoDOMElements = (entireList, listCount) => {
         let listBox = document.createElement('div');
         listBox.setAttribute('id', `list-${key}`);
         listBox.setAttribute('style', `margin: 20px;border: 2px solid black;padding: 10px;`);
+        // Title of List
+        let listTitle = document.createElement('h2');
+        listTitle.innerText = key + " List";
+        listBox.appendChild(listTitle);
         content.appendChild(listBox);
+        
+
+
 
         for(let i = 0; i < entireList[key].length; i++) {
             // Each reminder gets their own div
@@ -34,7 +41,6 @@ const createTodoDOMElements = (entireList, listCount) => {
             reminderDiv.appendChild(h4);
             //Description
             reminderDiv.appendChild(p);
-
 
             listBox.appendChild(reminderDiv);
         }

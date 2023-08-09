@@ -1,5 +1,4 @@
 
-
 const addReminderForm = () => {
     let form = document.createElement('form');
     let h2 = document.createElement('h2');
@@ -54,9 +53,11 @@ const addReminderForm = () => {
     let submit = document.createElement('input');
     submit.setAttribute('type','button');
     submit.setAttribute('value','Add Reminder');
+    submit.setAttribute('id','submitbtn');
     form.appendChild(submit);
 
     content.appendChild(form);
+
 }
 
 export { addReminderForm };
