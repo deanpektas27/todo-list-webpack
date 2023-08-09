@@ -12,7 +12,7 @@ const content = document.querySelector('#content');
 
 // A reminder has a title, description, dueDate and priority
 // Will add more parameters later
-const reminderFactory = (title, description, priority) => {
+const todoFactory = (title, description, priority) => {
     return {
         title, 
         description, 
@@ -20,8 +20,49 @@ const reminderFactory = (title, description, priority) => {
     };
 };
 
-const reminder = reminderFactory('Get milk', 'Go to Stop n Shop for milk', 'low');
-
-content.innerText = `${reminder.title}\n ${reminder.description}\n ${reminder.priority} Priority`;
-
 // Next, lets add an array that pushes the reminders to it
+let projectLists = {
+    default: [
+        {
+            title: 'Get milk',
+            description: 'Go to Stop n Shop for milk',
+            priority: 'low'
+        },
+        {
+            title: 'Car bill!!',
+            description: 'payment is past due..',
+            priority: 'high'
+        }
+    ]
+}
+
+const render = () => {
+    content.innerHTML = '';
+}
+
+// Lets now add all todos in the project list to the screen
+const displayTodos = (list) => {
+    render();
+    // create a function that creates DOM elements with todos
+    createTodoDOMElements(list);
+}
+
+const createTodoDOMElements = (list) => {
+    // Create DIV for every new reminder for easy styling
+    for(const key in list) {
+        console.log(list[key]);
+        let div = document.createElement('div');
+        div.setAttribute('id', `data-index-${key}`)
+        let h3 = document.createElement('h3');
+        h3.innerText = list[key].title;
+        div.appendChild(h3);
+        content.appendChild(div);
+    }
+}
+
+// Push data to list so it may be used by console/DOM
+// Object.assign(projectLists.default, todoFactory('Get milk', 'Go to Stop n Shop for milk', 'low'));
+// Object.assign(projectLists.default, todoFactory('Car bill!!', 'payment is past due..', 'high'));
+
+//console.table(projectLists);
+displayTodos(projectLists.default);
