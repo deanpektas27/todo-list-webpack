@@ -1,10 +1,12 @@
+import { addReminderToList } from './index';
 
-const addReminderForm = () => {
+const addReminderForm = (projectLists) => {
     let form = document.createElement('form');
     let h2 = document.createElement('h2');
     h2.innerText = 'Add Reminder to List';
     h2.setAttribute('style', 'text-decoration: underline');
     form.setAttribute('style', `margin: 20px;border: 2px solid black;padding: 10px;`);
+    form.setAttribute('id', `addReminder`);
     form.appendChild(h2);
 
     // Input Title box
@@ -49,6 +51,21 @@ const addReminderForm = () => {
     form.appendChild(reminderPriorityLabel);
     form.appendChild(dropdown);
 
+    //Input Desired List
+    let reminderListLabel = document.createElement('label');
+    reminderListLabel.setAttribute('for', 'inputList');
+    reminderListLabel.innerText = 'Choose List';
+    let listDropdown = document.createElement('select');
+    listDropdown.setAttribute('id', 'listdropdown');
+    for(const key in projectLists) {
+        let option = document.createElement('option');
+        option.setAttribute('value', `${key}`);
+        option.innerText = key;
+        listDropdown.appendChild(option);
+    }
+    form.appendChild(reminderListLabel);
+    form.appendChild(listDropdown);
+
     // Submit Reminder Btn
     let submit = document.createElement('input');
     submit.setAttribute('type','button');
@@ -57,6 +74,16 @@ const addReminderForm = () => {
     form.appendChild(submit);
 
     content.appendChild(form);
+
+    submit.addEventListener('click', () => {
+        let title = document.querySelector('#inputTitle').value;
+        let description = document.querySelector('#inputDescription').value;
+        let priority = document.querySelector('#priority').value;
+        let chosenList = document.querySelector('#listdropdown').value;
+        console.log(chosenList, title, description, priority, chosenList);
+        console.log(projectLists);
+        addReminderToList(chosenList, title, description, priority);
+    })
 
 }
 

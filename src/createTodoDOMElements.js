@@ -1,10 +1,7 @@
 
-const createTodoDOMElements = (entireList, listCount) => {
-    console.log('Current amount of lists ', listCount);
-
+const createTodoDOMElements = (entireList) => {
 
     for(const key in entireList) {
-        console.log(entireList[key]);
         // div for entire list
         let listBox = document.createElement('div');
         listBox.setAttribute('id', `list-${key}`);
@@ -14,13 +11,8 @@ const createTodoDOMElements = (entireList, listCount) => {
         listTitle.innerText = key + " List";
         listBox.appendChild(listTitle);
         content.appendChild(listBox);
-        
-
-
-
         for(let i = 0; i < entireList[key].length; i++) {
             // Each reminder gets their own div
-            console.log(entireList[key][i]);
             let reminderDiv = document.createElement('div');
             reminderDiv.setAttribute('id','reminder');
             reminderDiv.setAttribute('style','margin: 20px;border: 2px dotted black;padding: 10px;');
