@@ -1,20 +1,41 @@
 
-const createTodoDOMElements = (list) => {
-    for(const key in list) {
-        console.table(list[key].priority);
-        // div container for each reminder
-        let div = document.createElement('div');
-        div.setAttribute('id', `data-index-${key}`);
-        // title for each reminder
-        let h3 = document.createElement('h3');
-        h3.innerText = list[key].title;
-        // description for each reminder
-        let p = document.createElement('p');
-        p.innerText = list[key].description;
+const createTodoDOMElements = (entireList, listCount) => {
+    console.log('Current amount of lists ', listCount);
 
-        div.appendChild(h3);
-        div.appendChild(p);
-        content.appendChild(div);
+
+    for(const key in entireList) {
+        console.log(entireList[key]);
+        // div for entire list
+        let listBox = document.createElement('div');
+        listBox.setAttribute('id', `list`);
+        content.appendChild(listBox);
+
+        for(let i = 0; i < entireList[key].length; i++) {
+            // Each reminder gets their own div
+            console.log(entireList[key][i]);
+            let reminderDiv = document.createElement('div');
+            reminderDiv.setAttribute('id','reminder');
+
+            // Collect all properties of reminder and display them
+            let h2 = document.createElement('h2');
+            h2.setAttribute('id','reminderTitle')
+            h2.innerText = entireList[key][i].title;
+            let h4 = document.createElement('h4');
+            h4.setAttribute('id','priority');
+            h4.innerText = entireList[key][i].priority;
+            let p = document.createElement('p');
+            p.setAttribute('id','description');
+            p.innerText = entireList[key][i].description;
+            //Title
+            reminderDiv.appendChild(h2);
+            //Priority
+            reminderDiv.appendChild(h4);
+            //Description
+            reminderDiv.appendChild(p);
+
+
+            listBox.appendChild(reminderDiv);
+        }
     }
 }
 
