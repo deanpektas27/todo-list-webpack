@@ -40,7 +40,6 @@ const addList = (name) => {
 
 
 // Push data to list so it may be used by console/DOM
-//addReminderToList('school', 'SWE Interview w/ Abraham', 'Recruiter from linkedin', 'high');
 
 render();
 

@@ -10,13 +10,6 @@ let projectLists = {
             description: 'payment is past due..',
             priority: 'high'
         }
-    ],
-    school: [
-        {
-            title: 'Harvard application!!',
-            description: 'Need documents from QC to transfer',
-            priority: 'medium'
-        }
     ]
 }
 
