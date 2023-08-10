@@ -1,3 +1,4 @@
+import { render } from "./index";
 
 const createTodoDOMElements = (entireList) => {
 
@@ -27,6 +28,14 @@ const createTodoDOMElements = (entireList) => {
             let p = document.createElement('p');
             p.setAttribute('id','description');
             p.innerText = entireList[key][i].description;
+
+            let deletebtn = document.createElement('button');
+            deletebtn.innerText = 'Delete';
+            deletebtn.setAttribute('id', key);
+            deletebtn.setAttribute('data-index', i)
+            
+            
+            reminderDiv.appendChild(deletebtn);
             //Title
             reminderDiv.appendChild(h2);
             //Priority
@@ -35,6 +44,19 @@ const createTodoDOMElements = (entireList) => {
             reminderDiv.appendChild(p);
 
             listBox.appendChild(reminderDiv);
+
+            deletebtn.addEventListener('click', (btn) => {
+                let deleteIndex = btn.target.dataset.index;
+                let belongsTo = btn.target.id;
+                console.log(deleteIndex, belongsTo);
+                console.log(entireList[belongsTo][deleteIndex]);
+                let reminderToDelete = entireList[belongsTo][deleteIndex];
+                entireList[belongsTo].splice(reminderToDelete,1);
+                if(entireList[belongsTo].length < 1) {
+                    delete entireList[belongsTo];
+                }
+                render();
+            })
         }
     }
 }

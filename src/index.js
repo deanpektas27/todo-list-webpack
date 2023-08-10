@@ -43,4 +43,4 @@ const addList = (name) => {
 
 render();
 
-export { addReminderToList, addList };
+export { addReminderToList, addList, render };
